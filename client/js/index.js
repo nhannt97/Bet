@@ -62,7 +62,7 @@ $(document).ready(() => {
         return;
       }
       event.preventDefault();
-      fetch('http://localhost:3000/api/challanges/new', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
+      fetch(window.location.origin + '/api/challanges/new', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
         .then(async (response) => {
             const res = await response.json();
             if (response.status === 201) {
