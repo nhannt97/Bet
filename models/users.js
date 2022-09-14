@@ -22,35 +22,28 @@ var userSchema = new mongoose.Schema({
   kyc: {
     number: {
       type: String,
-      required: true
     },
     type: { // Aadhaar/Driving/Pan/License/Voter ID
       type: String,
-      required: true
     },
     frontPic: {
       url: {
         type: String,
-        required: true
       },
       name: {
         type: String,
-        required: true
       }
     },
     backPic: {
       url: {
         type: String,
-        required: true
       },
       name: {
         type: String,
-        required: true
       }
     },
     status: {
       type: String, // pending/approved/failed
-      required: true
     }
   }
 }, { timestamps: true });
