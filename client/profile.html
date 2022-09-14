@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <script src="/jquery-3.6.1.min.js"></script>
+  </script>
+  <script src="/profile.js"></script>
+  <style>
+    .border-bottom {
+      border-bottom: 1px solid #eee;
+      margin: 10px 0;
+    }
+    form {
+      border: 1px solid #eee;
+      padding: 10px;
+      border-radius: 3px;
+    }
+    #forms-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>
+    WalletChips: <span id="balance"> </span>
+  </h3>
+  <div class="border-bottom"></div>
+  <h2>PROFILE UPDATE</h2>
+  <div class="border-bottom"></div>
+  <div id="forms-container">
+    <form action="" id="profileform" onsubmit="return false" autocomplete="false">
+      <h3>Update Profile</h3>
+      <p></p>
+      <div style="padding: 5px">
+        <label for="phone"><b>Phone</b></label>
+        <input type="text" placeholder="Enter Phone" name="phone" id="phone" required>
+      </div>
+      <div style="padding: 5px">
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+      </div>
+      <button type="submit" class="btn">Update Profile</button>
+    </form>
+    <form action="" id="kycform" onsubmit="return false" autocomplete="false">
+      <h3>Update KYC</h3>
+      <p></p>
+      <div style="padding: 5px">
+        <label for="number"><b>Aadhaar Number</b></label>
+        <input type="text" placeholder="Enter Asdhaar Number" name="number" id="number" required>
+      </div>
+      <div style="padding: 5px">
+        <label for="type"><b>Document Type</b></label>
+        <select id="type" name="type" required>
+          <option value="">Select</option>
+          <option value="Aadhaar">Aadhaar</option>
+          <option value="Driving License">Driving License</option>
+          <option value="Pan">Pan</option>
+          <option value="Voter ID">Voter ID</option>
+        </select>
+      </div>
+      <div style="padding: 5px">
+        <label for="frontPic"><b>Upload Front Pic</b></label>
+        <input type="file" placeholder="Select file..." name="frontPic" id="frontPic" required>
+      </div>
+      <div style="padding: 5px">
+        <label for="backPic"><b>Upload Back Pic</b></label>
+        <input type="file" placeholder="Select file..." name="backPic" id="backPic" required>
+      </div>
+      <button type="submit" class="btn">Set</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
