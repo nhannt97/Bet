@@ -37,6 +37,8 @@ app.post('/api/register', ctrlAuth.register);
 app.post('/api/login', ctrlAuth.login);
 app.put('/api/user/update-profile', ctrlAuth.checkAuth, ctrlUser.updateProfile);
 app.put('/api/user/update-kyc', ctrlAuth.checkAuth, upload.fields([{ name: 'frontPic', maxCount: 1 }, { name: 'backPic', maxCount: 1 }]), ctrlUser.updateKYC);
+app.get('/api/users', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlUser.list);
+
 // app.post('/api/upload', ctrlAuth.checkAuth, upload.array('files', 2), (req, res) => {
 //     console.log('done');
 // });
@@ -59,6 +61,9 @@ app.get('/deposit', ctrlAuth.checkAuth, function (req, res) {
 });
 app.get('/profile', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'profile.html'));
+});
+app.get('/users', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'users.html'));
 });
 
 app.get('/login', function (req, res) {

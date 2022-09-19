@@ -57,5 +57,16 @@ module.exports = {
                 error: 'Unauthorized'
             });
         }
+    },
+    checkAdmin: async (req, res, next) => {
+        try {
+            if (req.user.email !== 'admin@gmail.com') throw "Unauthorized";
+            next();
+        } catch (error) {
+            console.log(error);
+            res.status(401).send({
+                error: 'Unauthorized'
+            });
+        }
     }
 };

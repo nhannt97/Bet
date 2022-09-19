@@ -4,6 +4,21 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 const { UPLOAD } = require('../server');
 module.exports = {
+    list: async (req, res) => {
+        try {
+            const users = await User.find({ email: { $ne: 'admin@gmail.com' } });
+            res.status(200).send(users.map((user) => ({
+                email: user.email,
+                phone: user.phone,
+                name: user.name
+            })));
+        } catch (error) {
+            console.log(JSON.stringify(error))
+            res.status(500).send({
+                error: JSON.stringify(error)
+            });
+        }
+    },
     updateProfile: async (req, res) => {
         try {
             const { phone, name } = req.body;

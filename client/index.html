@@ -25,6 +25,9 @@
       cursor: pointer;
       background-color: #007bff;
     }
+    #users-link {
+      display: none;
+    }
   </style>
 </head>
 
@@ -33,6 +36,7 @@
     Welcome <span id="name"></span> (<span id="balance"> </span> Chips)
     <a href="/deposit">Deposit</a>
     <a href="/transactions">Transactions</a>
+    <a href="/users" id="users-link">Users List</a>
   </h1>
   <div id="">
     <form action="" id="challangeform" onsubmit="return false" autocomplete="false">

@@ -5,7 +5,7 @@ $(document).ready(() => {
         values[element.name] = element.value;
       });
       event.preventDefault();
-      fetch(window.location.origin + '/api/login', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
+      fetch(window.location.origin + '/api/login', { method: 'post', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
         .then(async (response) => {
             const res = await response.json();
             if (response.status === 200) {
