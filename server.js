@@ -47,11 +47,18 @@ app.get('/api/wallet', ctrlAuth.checkAuth, ctrlTransaction.getWallet);
 app.get('/api/challanges', ctrlAuth.checkAuth, ctrlChallange.list);
 app.post('/api/challanges/new', ctrlAuth.checkAuth, ctrlChallange.add);
 app.get('/api/challanges/:challangeId/play', ctrlAuth.checkAuth, ctrlChallange.play);
+app.put('/api/challanges/:challangeId/submit', ctrlAuth.checkAuth, upload.fields([{ name: 'pic', maxCount: 1 }]), ctrlChallange.submit);
+app.put('/api/challanges/:challangeId/approve', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlChallange.approve);
+app.get('/api/challanges/:challangeId/submitted-pic', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlChallange.getSubmittedPic);
 app.post('/api/transaction/create-order', ctrlAuth.checkAuth, ctrlTransaction.createOrder);
 app.post('/api/transaction/create-payment', ctrlAuth.checkAuth, ctrlTransaction.createPayment);
 
-app.get('/', ctrlAuth.checkAuth, function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'index.html'));
+});
+
+app.get('/dashboard', ctrlAuth.checkAuth, function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'dashboard.html'));
 });
 app.get('/transactions', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'transaction.html'));
@@ -64,6 +71,9 @@ app.get('/profile', ctrlAuth.checkAuth, function (req, res) {
 });
 app.get('/users', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'users.html'));
+});
+app.get('/challanges', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'challanges.html'));
 });
 
 app.get('/login', function (req, res) {

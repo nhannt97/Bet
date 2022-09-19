@@ -2,87 +2,45 @@
 
 <head>
   <script src="/jquery-3.6.1.min.js"></script>
-  </script>
   <script src="/index.js"></script>
   <style>
-    .border-bottom {
-      border-bottom: 1px solid #eee;
-      margin: 10px 0;
+    #welcome-popup {
+      position: fixed;
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      background-color: #00000087;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .chip {
-      border-radius: 3px;
-      color: white;
-      margin: 0 3px;
-      padding: 3px 5px;
-    }
-    .amount-chip {
-      background-color: #28a745;
-    }
-    .game-type-chip {
-      background-color: #17a2b8;
-    }
-    .play-chip {
-      cursor: pointer;
-      background-color: #007bff;
-    }
-    #users-link {
-      display: none;
+    #subscribeform {
+      background: white;
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 10px;
+      width: 100%;
+      max-width: 350px;
+      box-sizing: border-box;
     }
   </style>
 </head>
 
 <body>
   <h1>
-    Welcome <span id="name"></span> (<span id="balance"> </span> Chips)
-    <a href="/deposit">Deposit</a>
-    <a href="/transactions">Transactions</a>
-    <a href="/users" id="users-link">Users List</a>
+    Landing page
+    
   </h1>
   <div id="">
-    <form action="" id="challangeform" onsubmit="return false" autocomplete="false">
-      <h1>New Challange</h1>
-      <p></p>
-      <div style="padding: 5px">
-        <label for="amount"><b>Amount</b></label>
-        <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
-      </div>
-      <div style="padding: 5px">
-        <label for="game"><b>Game Type</b></label>
-        <select id="gameType" name="gameType">
-          <option value="">Game Type</option>
-          <option value="Classic Full">Classic Full</option>
-          <option value="Popular">Popular</option>
-          <option value="Snake &amp; Ladder">Snake &amp; Ladder</option>
-          <option value="Ulta Game( Jo hara wo winner)">Ulta Game( Jo hara wo winner)</option>
-          <option value="1 Goti">1 Goti</option>
-          <option value="2 Goti">2 Goti</option>
-          <option value="3 Goti">3 Goti</option>
-          <option value="1st 6 Classic">1st 6 Classic</option>
-          <option value="1st 6 Ulta (Video Jruri hai)">1st 6 Ulta (Video Jruri hai)</option>
-          <option value="Ulta 1 Goti">Ulta 1 Goti</option>
-          <option value="Ulta 2 Goti">Ulta 2 Goti</option>
-          <option value="Quick game">Quick game</option>
-          <option value="Team (2-2 Classic)">Team (2-2 Classic)</option>
-          <option value="ulta snake  harne wala winner">ulta snake harne wala winner</option>
-        </select>
-      </div>
-      <button type="submit" class="btn">Set</button>
-    </form>
+    <a href="/login">Log in</a>
+    <a href="/register">Register</a>
   </div>
 
-  <h1>RECENT CHALLANGES</h1>
-  <div class="border-bottom"></div>
-  <div id="recent-challanges">
-  </div>
-  <h1>RUNNING CHALLANGES</h1>
-  <div class="border-bottom"></div>
-  <div id="running-challanges">
-  </div>
-
-  <div class="form-popup" id="welcome-popup"
-    style="position: fixed; z-index: 100;top: 50%; left: 50%; transform: translate(-50%, -50%)">
-    <form action="" id="subscribeform" onsubmit="return false" autocomplete="false"
-      style="background: white; border: 1px solid; border-radius: 5px; padding: 10px;">
+  <div class="form-popup" id="welcome-popup">
+    <form action="" id="subscribeform" onsubmit="return false" autocomplete="false">
       <h1>Welcome to Bet</h1>
       <p></p>
       <div style="padding: 5px">

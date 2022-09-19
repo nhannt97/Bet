@@ -18,9 +18,20 @@ var challangeSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  status: {
+  status: { // new/running/submitted/approved
     type: String,
     required: true
+  },
+  roomCode: String,
+  submit: {
+    winner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    pic: {
+      url: String,
+      name: String
+    }
   }
 }, { timestamps: true });
 

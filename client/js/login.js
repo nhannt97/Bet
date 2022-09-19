@@ -10,7 +10,7 @@ $(document).ready(() => {
             const res = await response.json();
             if (response.status === 200) {
                 console.log(res);
-                window.location.pathname = '/'
+                window.location.pathname = '/dashboard'
             } else {
                 alert(JSON.stringify(res));
             }

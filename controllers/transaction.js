@@ -38,7 +38,7 @@ module.exports = {
     getWallet: async (req, res) => {
         try {
             const user = req.user;
-            const transactions = await Transaction.find({ user: user._id });
+            const transactions = await Transaction.find({ user: user._id }).sort({ createdAt: -1 });
             res.status(200).send({
                 amount: transactions.map(tran => tran.amount).reduce((partialSum, a) => partialSum + a, 0),
                 transactions

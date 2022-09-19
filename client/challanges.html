@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <script src="/jquery-3.6.1.min.js"></script>
+  </script>
+  <script src="/challanges.js"></script>
+  <style>
+    .border-bottom {
+      border-bottom: 1px solid #eee;
+      margin: 10px 0;
+    }
+    .chip {
+      border-radius: 3px;
+      color: white;
+      margin: 0 3px;
+      padding: 3px 5px;
+    }
+    .amount-chip {
+      background-color: #28a745;
+    }
+    .game-type-chip {
+      background-color: #17a2b8;
+    }
+    .play-chip {
+      cursor: pointer;
+      background-color: #007bff;
+    }
+    .approve-chip {
+      cursor: pointer;
+      background-color: #ffd000;
+    }
+    .room-code-chip {
+      background-color: red;
+    }
+    .show-submitted-img-chip {
+      background-color: violet;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+    .form-popup {
+      position: fixed;
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      background-color: #00000087;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>SUBMITTED CHALLANGES <button id="refesh">Refresh</button></h1>
+  <div class="border-bottom"></div>
+  <div id="submitted-challanges">
+  </div>
+  <div class="form-popup" id="submitted-img-popup">
+    <img src="" id="submitted-img" />
+    <button id="close-submitted-img-popup">Close</button>
+  </div>
+</body>
+
+</html>

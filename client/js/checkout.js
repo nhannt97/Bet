@@ -37,7 +37,7 @@ $(document).ready(function () {
                             }).then(async (result) => {
                                 const rest = await result.json();
                                 if (result.status === 201) {
-                                    window.location.pathname = '/';
+                                    window.location.pathname = '/dashboard';
                                 } else {
                                     alert(JSON.stringify(rest));
                                 }
