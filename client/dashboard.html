@@ -5,6 +5,9 @@
   </script>
   <script src="/dashboard.js"></script>
   <style>
+    body{
+      margin: 0;
+    }
     .border-bottom {
       border-bottom: 1px solid #eee;
       margin: 10px 0;
@@ -57,17 +60,92 @@
       max-width: 350px;
       box-sizing: border-box;
     }
+    .header {
+  overflow: hidden;
+  background-color: red;
+  padding: 10px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color:white;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+   color: white;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: transparent;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+.header_line{
+  background-color: #ffc107!important;
+    color: red;
+    padding: 0px;
+    margin-top: 0px;
+    height: 26px;
+    padding-top: 7px;
+}
+.wallet_box{
+        margin: 0;
+    padding: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    margin-top: -16px;
+    height: 33px;
+    padding-top: 5px;
+}
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
   </style>
 </head>
 
 <body>
-  <h1>
-    Welcome <span id="name"></span> (<span id="balance"> </span> Chips)
-    <a href="/deposit">Deposit</a>
-    <a href="/transactions">Transactions</a>
-    <a href="/users" id="users-link">Users List</a>
-    <a href="/challanges" id="submitted-challanges-link">Submitted Challanges</a>
-  </h1>
+  <div class="header">
+    <a href="#default" class="logo">Ludo Challenges</a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="/deposit">Deposit</a>
+      <a href="/transaction">Transaction</a>
+      <a href="#contact">Help</a>
+      <a href="/profile">Profile</a>
+    </div>
+  </div>
+  <p class="header_line"><marquee>Let's earn money by playing with each other. You will get 90 % winning bonuses after winning the match. </marquee> </p>
+  <p class="wallet_box"> Welcome <span id="name"></span>. You have <span id="balance"> </span> chips</p>
   <div id="">
     <form action="" id="challangeform" onsubmit="return false" autocomplete="false">
       <h1>New Challange</h1>

@@ -2,45 +2,156 @@
 
 <head>
   <script src="/jquery-3.6.1.min.js"></script>
+  </script>
   <script src="/index.js"></script>
   <style>
-    #welcome-popup {
-      position: fixed;
-      z-index: 100;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100vh;
-      background-color: #00000087;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .border-bottom {
+      border-bottom: 1px solid #eee;
+      margin: 10px 0;
     }
-    #subscribeform {
-      background: white;
-      border: 1px solid;
-      border-radius: 5px;
-      padding: 10px;
-      width: 100%;
-      max-width: 350px;
-      box-sizing: border-box;
+    .chip {
+      border-radius: 3px;
+      color: white;
+      margin: 0 3px;
+      padding: 3px 5px;
     }
+    .amount-chip {
+      background-color: #28a745;
+    }
+    .game-type-chip {
+      background-color: #17a2b8;
+    }
+    .play-chip {
+      cursor: pointer;
+      background-color: #007bff;
+    }
+    .header {
+  overflow: hidden;
+  background-color: red;
+  padding: 10px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color:white;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+   color: white;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: transparent;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+.header_line{
+    background-color:#ffc107!important;
+    color:red;
+}
+.wallet_box{
+        margin: 0;
+    padding: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    margin-top: -16px;
+    height: 33px;
+    padding-top: 5px;
+}
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
   </style>
 </head>
 
 <body>
-  <h1>
-    Landing page
-    
-  </h1>
+  <div class="header">
+    <a href="#default" class="logo">Ludo Challenges</a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="#contact">Deposit</a>
+      <a href="#contact">Transaction</a>
+      <a href="#contact">Help</a>
+      <a href="#about">Profile</a>
+    </div>
+  </div>
+  <p class="header_line"><marquee>Let's earn money by playing with each other. You will get 90 % winning bonuses after winning the match. </marquee> </p>
+  <p class="wallet_box"> Welcome <span id="name"></span>. You have <span id="balance"> </span> chips</p>
   <div id="">
-    <a href="/login">Log in</a>
-    <a href="/register">Register</a>
+    <form action="" id="challangeform" onsubmit="return false" autocomplete="false">
+      <h1>New Challange</h1>
+      <p></p>
+      <div style="padding: 5px">
+        <label for="amount"><b>Amount</b></label>
+        <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
+      </div>
+      <div style="padding: 5px">
+        <label for="game"><b>Game Type</b></label>
+        <select id="gameType" name="gameType">
+          <option value="">Game Type</option>
+          <option value="Classic Full">Classic Full</option>
+          <option value="Popular">Popular</option>
+          <option value="Snake &amp; Ladder">Snake &amp; Ladder</option>
+          <option value="Ulta Game( Jo hara wo winner)">Ulta Game( Jo hara wo winner)</option>
+          <option value="1 Goti">1 Goti</option>
+          <option value="2 Goti">2 Goti</option>
+          <option value="3 Goti">3 Goti</option>
+          <option value="1st 6 Classic">1st 6 Classic</option>
+          <option value="1st 6 Ulta (Video Jruri hai)">1st 6 Ulta (Video Jruri hai)</option>
+          <option value="Ulta 1 Goti">Ulta 1 Goti</option>
+          <option value="Ulta 2 Goti">Ulta 2 Goti</option>
+          <option value="Quick game">Quick game</option>
+          <option value="Team (2-2 Classic)">Team (2-2 Classic)</option>
+          <option value="ulta snake  harne wala winner">ulta snake harne wala winner</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Set</button>
+    </form>
   </div>
 
-  <div class="form-popup" id="welcome-popup">
-    <form action="" id="subscribeform" onsubmit="return false" autocomplete="false">
+  <h1>RECENT CHALLANGES</h1>
+  <div class="border-bottom"></div>
+  <div id="recent-challanges">
+  </div>
+  <h1>RUNNING CHALLANGES</h1>
+  <div class="border-bottom"></div>
+  <div id="running-challanges">
+  </div>
+
+  <div class="form-popup" id="welcome-popup"
+    style="position: fixed; z-index: 100;top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <form action="" id="subscribeform" onsubmit="return false" autocomplete="false"
+      style="background: white; border: 1px solid; border-radius: 5px; padding: 10px;">
       <h1>Welcome to Bet</h1>
       <p></p>
       <div style="padding: 5px">

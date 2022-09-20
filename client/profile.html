@@ -2,55 +2,145 @@
 
 <head>
   <script src="/jquery-3.6.1.min.js"></script>
-  </script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="/profile.js"></script>
   <style>
     .border-bottom {
       border-bottom: 1px solid #eee;
       margin: 10px 0;
     }
+    .form_field{
+        width:90%;
+    }
+    input#name {
+    border: 1px solid black;
+}
     form {
-      border: 1px solid #eee;
       padding: 10px;
       border-radius: 3px;
     }
-    #forms-container {
-      display: flex;
-      justify-content: space-between;
+    .wallet_box{
+        padding-top:16px;
+         height: 350px;
+    background: radial-gradient(circle, rgba(251,63,63,1) 0%, rgba(252,70,70,0.9808298319327731) 100%);
+    border: 1px solid white;
+    border-radius: 29px;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    color: white;
+    font-size: 26px;
+    margin-top:24px;
     }
+    .welcome_name{
+        color:grey;
+        font-size:48px;
+        margin-bottom:4px;
+    }
+    .person_name{
+        font-size:36px;
+    }
+    .person_name{
+        color:red !important;
+    }
+    .top-bar{
+        padding:12px;
+    }
+    form#profileform {
+    width: 85%;
+        margin: auto;
+}
+#kycform{
+    margin:auto;
+    width:85%;
+}
+.profile_updation {
+    margin-top:48px;
+}
+input#phone{
+    border: 1px solid black;
+    height:33px;
+    width:-webkit-fill-available;
+}
+input#name{
+     border: 1px solid black;
+    height:33px;
+     width:-webkit-fill-available;
+}
+input#number{
+     border: 1px solid black;
+    height:33px;
+     width:-webkit-fill-available;
+}
+input#type{
+     border: 1px solid black;
+    height:33px;
+     width:-webkit-fill-available;
+}
+.update_pf{
+        font-size: 36px;
+    font-family: auto;
+}
+.update_btn, .set_btn{
+        color: white;
+    background: red;
+    width: 250px;
+    margin-top: 12px;
+    font-size:28px;
+border-top-left-radius:25px;
+border-bottom-right-radius:25px;
+    
+}
+.kyc_updation{
+    margin-top:62px;
+}
+.wallet_chips{
+    font-size:64px;
+    margin-top:28px;
+}
+.phone_for, .name_for{
+    font-size:32px;
+}
+
   </style>
 </head>
 
 <body>
-  <h3>
-    WalletChips: <span id="balance"> </span>
+    <div class="top-bar">
+        <h4 class="welcome_name">Welcome <br> <span class="person_name"> Name </span></h4>
+    </div>
+    <div class="wallet_box">
+  <h3 class="wallet_chips">
+    Wallet Chips: <br> <span id="balance"> </span>
   </h3>
-  <div class="border-bottom"></div>
-  <h2>PROFILE UPDATE</h2>
-  <div class="border-bottom"></div>
-  <div id="forms-container">
-    <form action="" id="profileform" onsubmit="return false" autocomplete="false">
-      <h3>Update Profile</h3>
+  </div>
+  <div class="profile_setting">
+      <div class="profile_updation">
+          <form action="" id="profileform" onsubmit="return false" autocomplete="false">
+      <h3 class="update_pf">Update Profile</h3>
       <p></p>
       <div style="padding: 5px">
-        <label for="phone"><b>Phone</b></label>
-        <input type="text" placeholder="Enter Phone" name="phone" id="phone" required>
+        <label for="phone" class="phone_for">Phone</label> <br>
+        <input type="text" class="form_control" placeholder="Enter Phone" name="phone" id="phone" required>
       </div>
       <div style="padding: 5px">
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+        <label for="name" class="name_for">Name</label> <br>
+        <input type="text" class="form_control" placeholder="Enter Name" name="name" id="name" required>
       </div>
-      <button type="submit" class="btn">Update Profile</button>
+      <button type="submit" class="btn update_btn">Update Profile</button>
     </form>
-    <form action="" id="kycform" onsubmit="return false" autocomplete="false">
+      </div>
+      <div class="kyc_updation">
+           <form action="" id="kycform" onsubmit="return false" autocomplete="false">
       <h3>Update KYC</h3>
       <p></p>
       <div style="padding: 5px">
-        <label for="number"><b>Aadhaar Number</b></label>
-        <input type="text" placeholder="Enter Asdhaar Number" name="number" id="number" required>
+        <label for="number"><b>Aadhaar Number</b></label> <br>
+        <input type="text" class="form_control" placeholder="Enter Adhaar Number" name="number" id="number" required>
       </div>
       <div style="padding: 5px">
-        <label for="type"><b>Document Type</b></label>
+        <label for="type"><b>Document Type</b></label> <br>
         <select id="type" name="type" required>
           <option value="">Select</option>
           <option value="Aadhaar">Aadhaar</option>
@@ -61,16 +151,20 @@
       </div>
       <div style="padding: 5px">
         <label for="frontPic"><b>Upload Front Pic</b></label>
-        <input type="file" placeholder="Select file..." name="frontPic" id="frontPic" required>
+        <input type="file" class="form_field" 66placeholder="Select file..." name="frontPic" id="frontPic" required>
       </div>
       <div style="padding: 5px">
         <label for="backPic"><b>Upload Back Pic</b></label>
-        <input type="file" placeholder="Select file..." name="backPic" id="backPic" required>
+        <input type="file" class="form_field" placeholder="Select file..." name="backPic" id="backPic" required>
       </div>
-      <button type="submit" class="btn">Set</button>
+      <button type="submit" class="btn set_btn">Update Kyc</button>
     </form>
+          
+      </div>
+      
+      
   </div>
 
-</body>
-
-</html>
+ 
+  </body>
+  </html>
