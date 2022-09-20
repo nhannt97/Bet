@@ -10,7 +10,7 @@ module.exports = {
         try {
             const { amount, receipt } = req.body;
             const options = {
-                amount,
+                amount: amount * 100,
                 currency: "INR",
                 receipt,
             };
@@ -26,7 +26,7 @@ module.exports = {
             const { payId, orderId, user, paySignature } = req.body;
             let payment = await instance.payments.fetch(payId,{"expand[]":"card"});
             if (payment.status === 'captured') {
-                const transaction = new Transaction({ user, orderId, payId, amount: payment.amount, type: 'Deposit', paySignature });
+                const transaction = new Transaction({ user, orderId, payId, amount: payment.amount / 100, type: 'Deposit', paySignature });
                 const result = await transaction.save();
                 res.status(201).send(result);
             } else throw "Error";
