@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="/jquery-3.6.1.min.js"></script>
   </script>
   <script src="/dashboard.js"></script>
@@ -119,6 +121,30 @@
     height: 33px;
     padding-top: 5px;
 }
+.main_body{
+       padding: 113px;
+    padding-bottom: 16px !important;
+    padding-top: 48px !important;
+}
+.main_form{
+    padding-left:113px;
+    padding-right:113px;
+    
+}
+form#challangeform {
+    display: inline-flex;
+}
+.form_custom{
+    width:50px;
+}
+#amount{
+    width:350px;
+}
+#gameType{
+        width: 350px;
+    height: 30px;
+    margin-left: -10px;
+}
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
   .header a {
@@ -146,16 +172,22 @@
   </div>
   <p class="header_line"><marquee>Let's earn money by playing with each other. You will get 90 % winning bonuses after winning the match. </marquee> </p>
   <p class="wallet_box"> Welcome <span id="name"></span>. You have <span id="balance"> </span> chips</p>
-  <div id="">
+  
+  <div class="container main_body">
+      <p>Notice- Popular Full / Classic Full Game dekh k khelo, Game Goti khulte hi valid h. Popular Full me popular ka code and Classic Full me Classic Only code are valid. Agar aapko koi game me dusri site pe khelne k liye bolta h to hme screenshot do hum aapko win denge.
+
+Request- Game ko Game ki bhavna se khelo,kisi ko gaali gloch mat kro,Respect doge Respect Milegi.Jab tak goti open na ho win mat dalo.</p>
+      
+      
+  </div>
+  
+  <div id="" class="container main_form">
     <form action="" id="challangeform" onsubmit="return false" autocomplete="false">
-      <h1>New Challange</h1>
       <p></p>
-      <div style="padding: 5px">
-        <label for="amount"><b>Amount</b></label>
+      <div class="form_custom" style="padding: 5px">
         <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
       </div>
-      <div style="padding: 5px">
-        <label for="game"><b>Game Type</b></label>
+      <div class="form_custom" style="padding: 5px">
         <select id="gameType" name="gameType">
           <option value="">Game Type</option>
           <option value="Classic Full">Classic Full</option>
@@ -177,16 +209,16 @@
       <button type="submit" class="btn">Set</button>
     </form>
   </div>
-
-  <h1>RECENT CHALLANGES</h1>
+<div class="container main_body">
+  <h1>Recent Challenges</h1>
   <div class="border-bottom"></div>
   <div id="recent-challanges">
   </div>
-  <h1>RUNNING CHALLANGES</h1>
+  <h1>Running Challenges</h1>
   <div class="border-bottom"></div>
   <div id="running-challanges">
   </div>
-
+</div>
   <div class="form-popup" id="room-code-popup">
     <form action="" id="roomcodeform" onsubmit="return false" autocomplete="false">
       <div style="padding: 5px">
