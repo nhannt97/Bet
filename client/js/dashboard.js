@@ -33,6 +33,7 @@ $(document).ready(() => {
       if (res.status === 200) {
         let recent = '';
         let running = '';
+        let myRunning = '';
         challanges.forEach((challange) => {
           if (challange.status === 'new') {
             recent += `
@@ -56,10 +57,23 @@ $(document).ready(() => {
             </div>
             <div class="border-bottom"></div>
           `;
+            if (challange.creator._id === window.user._id || challange.accepter._id === window.user._id) {
+              myRunning += `
+            <div class="challange running-challange">
+              ${challange.creator.name} <span>vs</span> ${challange.accepter.name} for 
+              <span class="chip amount-chip">Rs.${challange.amount}</span>
+              <span class="chip game-type-chip">${challange.gameType}</span>
+              ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
+              ${challange.creator._id === window.user._id || challange.accepter._id === window.user._id ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
+            </div>
+            <div class="border-bottom"></div>
+          `;
+            }
           }
         });
         $('#recent-challanges')[0].innerHTML = recent;
         $('#running-challanges')[0].innerHTML = running;
+        $('#my-running-challanges')[0].innerHTML = myRunning;
       }
     });
   }
