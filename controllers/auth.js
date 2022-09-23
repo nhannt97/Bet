@@ -14,7 +14,7 @@ module.exports = {
                 error: JSON.stringify(error)
             });
         }
-        
+
     },
     login: async (req, res) => {
         try {
@@ -27,6 +27,19 @@ module.exports = {
                 res.cookie('user', JSON.stringify({ _id: user._id, email, name: user.name, phone: user.phone, kyc: user.kyc }));
                 res.status(200).send(user);
             } else throw 'Login failed!'
+        } catch (error) {
+            console.log(JSON.stringify(error))
+            res.status(401).send({
+                error: JSON.stringify(error)
+            });
+        }
+    },
+    logout: async (req, res) => {
+        try {
+            res.cookie('token', undefined);
+            req.user = undefined;
+            res.cookie('user', undefined);
+            res.redirect(process.env.BASE_URL + '/login');
         } catch (error) {
             console.log(JSON.stringify(error))
             res.status(401).send({

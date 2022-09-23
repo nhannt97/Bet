@@ -35,6 +35,7 @@ const ctrlUser = require('./controllers/user');
 
 app.post('/api/register', ctrlAuth.register);
 app.post('/api/login', ctrlAuth.login);
+app.get('/api/logout', ctrlAuth.checkAuth, ctrlAuth.logout);
 app.put('/api/user/update-profile', ctrlAuth.checkAuth, ctrlUser.updateProfile);
 app.put('/api/user/update-kyc', ctrlAuth.checkAuth, upload.fields([{ name: 'frontPic', maxCount: 1 }, { name: 'backPic', maxCount: 1 }]), ctrlUser.updateKYC);
 app.get('/api/users', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlUser.list);
