@@ -38,6 +38,7 @@ module.exports = {
     createWithdraw: async (req, res) => {
         try {
             const { accountNumber, ifscCode, holderName, amount } = req.body;
+            if (!accountNumber || !ifscCode || !holderName || !amount || amount < 50) throw "Error";
             const transaction = new Transaction({ user: req.user._id, accountNumber, ifscCode, holderName, amount: -amount, type: 'Withdraw', status: 'pending' });
             const result = await transaction.save();
             res.status(201).send(result);
