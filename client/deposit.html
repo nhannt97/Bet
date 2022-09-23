@@ -1,21 +1,62 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/css/style.css">
     <script src="/jquery-3.6.1.min.js"></script>
     <script src="/checkout.js"></script>
     </script>
+    <script src="https://kit.fontawesome.com/169a5864cc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="header">
+        <a href="#default" class="logo">Ludo Challenges</a>
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="/deposit">Deposit</a>
+          <a href="/transaction">Transaction</a>
+          <a href="#contact">Help</a>
+          <a href="/profile">Profile</a>
+          <a href="#">Log Out</a>
+        </div>
+      </div>
+
+
+
+<div class="container">
     <form action="" id="paymentform" onsubmit="return false" autocomplete="false">
         <h1>Buy Chips</h1>
         <p></p>
         <div style="padding: 5px">
-            <label for="amount"><b>Amount</b></label>
             <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
         </div>
         <button type="submit" class="btn">Pay</button>
     </form>
+</div>
+
+
+
+    <div class="footer">
+        <div class="footer-home">
+    <i class="fa-solid fa-house"></i>
+            <p>Home</p>
+        </div>
+        
+         <div class="footer-history">
+           <i class="fa-solid fa-clock-rotate-left"></i>
+            <p>History</p>
+        </div>
+         <div class="footer-deposit">
+             <i class="fa-solid fa-plus"></i>
+            <p>Deposit</p>
+        </div>
+         <div class="footer-withdraw">
+            <i class="fa-sharp fa-solid fa-wallet"></i>
+            <p>Withdraw</p>
+        </div>
+        
+        
+    </div>
 </body>
 
 </html>
