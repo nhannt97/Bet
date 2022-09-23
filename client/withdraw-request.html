@@ -2,7 +2,7 @@
 
 <head>
     <script src="/jquery-3.6.1.min.js"></script>
-    <script src="/checkout.js"></script>
+    <script src="/withdraw-request.js"></script>
     </script>
     <style>
         .border-bottom {
@@ -20,23 +20,32 @@
         .amount-chip {
             background-color: #28a745;
         }
-        .success-chip {
+        .approve-chip {
             background-color: #106fbe;
+            cursor: pointer;
         }
         .pending-chip {
             background-color: #ffb900;
         }
-        .fail-chip {
+        .reject-chip {
             background-color: red;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
     <h3>Wallet Chips: <span id="balance"></span></h3>
-    <h3>TRANSACTION HISTORY</h3>
+    <h3>PENDING REQUEST</h3>
     <div class="border-bottom"></div>
-    <div id="transaction-history"></div>
+    <div id="p-withdraw-request"></div>
+
+    <h3>SUCCESS REQUEST</h3>
+    <div class="border-bottom"></div>
+    <div id="s-withdraw-request"></div>
+    <h3>FAIL REQUEST</h3>
+    <div class="border-bottom"></div>
+    <div id="f-withdraw-request"></div>
 </body>
 
 </html>

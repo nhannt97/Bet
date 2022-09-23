@@ -40,7 +40,7 @@ $(document).ready(() => {
     });
   }
   fetchChallanges();
-  setInterval(fetchChallanges, 200);
+  setInterval(fetchChallanges, 2000);
   $('#refresh').click(() => {
     fetchChallanges();
   });

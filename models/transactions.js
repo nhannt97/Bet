@@ -14,6 +14,9 @@ var transactionSchema = new mongoose.Schema({
     ref: 'Challange',
     required: false
   },
+  accountNumber: String,
+  ifscCode: String,
+  holderName: String,
   type: {
     type: String // Deposite/Withdraw/Play Challange/Win Challange/Lose Challange
   },

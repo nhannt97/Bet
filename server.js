@@ -52,6 +52,10 @@ app.put('/api/challanges/:challangeId/approve', ctrlAuth.checkAuth, ctrlAuth.che
 app.get('/api/challanges/:challangeId/submitted-pic', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlChallange.getSubmittedPic);
 app.post('/api/transaction/create-order', ctrlAuth.checkAuth, ctrlTransaction.createOrder);
 app.post('/api/transaction/create-payment', ctrlAuth.checkAuth, ctrlTransaction.createPayment);
+app.post('/api/transaction/create-withdraw', ctrlAuth.checkAuth, ctrlTransaction.createWithdraw);
+app.get('/api/transaction/get-withdraw-request', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlTransaction.getWithdrawRequest);
+app.put('/api/transaction/:transactionId/approve', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlTransaction.approve);
+app.put('/api/transaction/:transactionId/reject', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlTransaction.reject);
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'index.html'));
@@ -65,6 +69,12 @@ app.get('/transactions', ctrlAuth.checkAuth, function (req, res) {
 });
 app.get('/deposit', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'deposit.html'));
+});
+app.get('/withdraw', ctrlAuth.checkAuth, function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'withdraw.html'));
+});
+app.get('/withdraw-request', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'withdraw-request.html'));
 });
 app.get('/profile', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'profile.html'));
