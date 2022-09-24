@@ -12,7 +12,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(express.static(path.join(__dirname, 'client/js')));
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 const UPLOAD = path.join(__dirname, process.env.UPLOAD);
 module.exports = {
@@ -65,7 +65,7 @@ app.get('/', function (req, res) {
 app.get('/dashboard', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'dashboard.html'));
 });
-app.get('/transactions', ctrlAuth.checkAuth, function (req, res) {
+app.get('/transaction', ctrlAuth.checkAuth, function (req, res) {
     res.sendFile(path.join(__dirname, 'client', 'transaction.html'));
 });
 app.get('/deposit', ctrlAuth.checkAuth, function (req, res) {

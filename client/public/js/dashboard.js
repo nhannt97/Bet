@@ -57,7 +57,7 @@ $(document).ready(() => {
             </div>
             <div class="border-bottom"></div>
           `;
-            if (challange.creator._id === window.user._id || challange.accepter._id === window.user._id) {
+            if (challange.status === 'running' && (challange.creator._id === window.user._id || challange.accepter._id === window.user._id)) {
               myRunning += `
             <div class="challange running-challange">
               ${challange.creator.name} <span>vs</span> ${challange.accepter.name} for 

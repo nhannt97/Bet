@@ -10,7 +10,7 @@ $(document).ready(() => {
             const res = await response.json();
             if (response.status === 201) {
                 console.log(res);
-                window.location.pathname = '/transactions'
+                window.location.pathname = '/transaction'
             } else {
                 alert(JSON.stringify(res));
             }

@@ -4,7 +4,7 @@
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'><link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.6.1.min.js"></script>
-  <script src="js/login.js">
+  <script src="js/register.js">
   </script>
 
   <style>
@@ -32,7 +32,8 @@ body {
     font-weight: 700;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    margin-left: 16px;
     color: #4C489D;
     box-shadow: 0px 2px 2px #5c5696;
     cursor: pointer;
@@ -45,9 +46,18 @@ body {
 	justify-content: center;
 	min-height: 100vh;
 }
+.screen__background {
+    display: none;
+}
+.heading_register{
+    font-size: 34px;
+    color: #7875B5;
+    text-align: center;
+    padding-top: 33px;
 
+}
 .screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	background: white;		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
@@ -121,6 +131,7 @@ body {
 .login__field {
 	padding: 20px 0px;	
 	position: relative;	
+margin-left: 28px;
 }
 
 .login__icon {
@@ -136,7 +147,7 @@ body {
 	padding: 10px;
 	padding-left: 24px;
 	font-weight: 700;
-	width: 75%;
+	width: 90%;
 	transition: .2s;
 }
 
@@ -214,25 +225,31 @@ body {
   <div class="container">
     <div class="screen">
       <div class="screen__content">
-        <form action="" id="loginform" onsubmit="return false" autocomplete="false" class="login">
+        <h3 class="heading_register"> REGISTER</h3>
+        <form action="" id="registerform" onsubmit="return false" autocomplete="false">
           <div class="login__field">
             <i class="login__icon fas fa-user"></i>
-            <input type="email" class="login__input" placeholder="Enter Email" name="email" id="name">
+            <input type="email" class="login__input" placeholder="Enter Email" name="email" id="email" required>
           </div>
           <div class="login__field">
             <i class="login__icon fas fa-lock"></i>
-            <input type="password" class="login__input" placeholder="Password" name="password" id="password">
+            <input type="name" class="login__input" placeholder="Enter Name" name="name" id="name" required>
           </div>
-          <button type="submit" class="registerbtn">Login Now <i class="button__icon fas fa-chevron-right"></i> </button>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input type="phone" class="login__input" placeholder="Enter Phone" name="phone" id="email" required>
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input type="password" class="login__input" placeholder="Enter Password" name="password" id="password" required>
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input type="password" class="login__input" placeholder="Repeat Password" name="rePassword" id="rePassword" required>
+          </div>
+          <button type="submit" class="registerbtn">Register <i class="button__icon fas fa-chevron-right"></i></button>
         </form>
-        <div class="social-login">
-          <h3>Log in via</h3>
-          <div class="social-icons">
-            <a href="#" class="social-login__icon fab fa-instagram"></a>
-            <a href="#" class="social-login__icon fab fa-facebook"></a>
-            <a href="#" class="social-login__icon fab fa-twitter"></a>
-          </div>
-        </div>
+
       </div>
       <div class="screen__background">
         <span class="screen__background__shape screen__background__shape4"></span>
@@ -249,3 +266,14 @@ body {
 </html>
 
 
+
+
+
+  
+
+         
+
+   
+     
+
+   

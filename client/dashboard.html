@@ -1,16 +1,22 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="author" content="Tooplate">
+  <link href="css/tooplate-waso-strategy.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-  <script src="/jquery-3.6.1.min.js"></script>
+  <script src="js/jquery-3.6.1.min.js"></script>
   <script src="https://kit.fontawesome.com/169a5864cc.js" crossorigin="anonymous"></script>
   </script>
-  <script src="/dashboard.js"></script>
+  <script src="js/dashboard.js"></script>
   <style>
 body {
     margin: 0;
@@ -106,57 +112,11 @@ text-align: center;
     box-sizing: border-box;
     border: 1px solid red;
   }
-
-  .header {
-    overflow: hidden;
-    background-color: red;
-    padding: 10px 10px;
+  .form-popup{
+    display:none;
   }
 
-  /* Style the header links */
-  .header a {
-    float: left;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
-  }
-
-  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-  .header a.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-  }
-
-  /* Change the background color on mouse-over */
-  .header a:hover {
-    color: white;
-  }
-
-  /* Style the active/current link*/
-  .header a.active {
-    background-color: transparent;
-    color: white;
-  }
-
-  /* Float the link section to the right */
-  .header-right {
-    float: right;
-  }
-
-  .header_line {
-    background-color: #ffc107 !important;
-    color: red;
-    padding: 0px;
-    margin-top: 0px;
-    height: 26px;
-    padding-top: 2px;
-  }
-
+  
   .wallet_box {
     margin: 0;
     padding: 0;
@@ -168,6 +128,9 @@ text-align: center;
     height: 33px;
     padding-top: 5px;
   }
+  input[type="text"] {
+    border: 1px solid black;
+}
 
   .main_body {
     padding: 113px;
@@ -190,11 +153,11 @@ text-align: center;
   }
 
   #amount {
-    width:auto;
+    width:-webkit-fill-available;
   }
 
   #gameType {
-    width: auto;
+    width: -webkit-fill-available;
     height: 30px;
     margin-left: -10px;
   }
@@ -219,17 +182,78 @@ text-align: center;
 </head>
 
 <body>
-  <div class="header">
-    <a href="#default" class="logo">Ludo Challenges</a>
-    <div class="header-right">
-      <a class="active" href="#home">Home</a>
-      <a href="/deposit">Deposit</a>
-      <a href="/transactions">Transaction</a>
-      <a href="#contact">Help</a>
-      <a href="/profile">Profile</a>
-      <a href="/api/logout" id="logout">Log Out</a>
+  <header class="site-header">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-3 col-md-5 col-7">
+                <p class="text-white mb-0">
+                    <i class="bi-clock site-header-icon me-2"></i>
+                   24*7 Placing Challenges
+                </p>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-5">
+                <p class="text-white mb-0">
+                    <a href="tel: 240-480-9600" class="text-white">
+                        <i class="bi-telephone site-header-icon me-2"></i>
+                       +917986621676
+                    </a>
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-12 ms-auto">
+                <ul class="social-icon">
+                    <li><a href="https://facebook.com/tooplate" class="social-icon-link bi-facebook"></a></li>
+
+                    <li><a href="https://pinterest.com/tooplate" class="social-icon-link bi-pinterest"></a></li>
+
+                    <li><a href="https://twitter.com/minthu" class="social-icon-link bi-twitter"></a></li>
+
+                    <li><a href="https://www.youtube.com/tooplate" class="social-icon-link bi-youtube"></a></li>
+                </ul>
+            </div>
+
+        </div>
     </div>
-  </div>
+</header>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-lg">
+    <div class="container">
+
+        <a href="#" class="navbar-brand">Ludo <span class="text-danger">Challenges</span></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/deposit"><small class="small-title"><strong class="text-warning">02</strong></small> Deposit</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/transaction"><small class="small-title"><strong class="text-warning">03</strong></small> Transaction</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/profile"><small class="small-title"><strong class="text-warning">04</strong></small> Profile</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">05</strong></small>Log Out</a>
+                </li>
+            </ul>
+        <div>
+                
+    </div>
+</nav>
+
   <p class="header_line">
     <marquee>Let's earn money by playing with each other. You will get 90 % winning bonuses after winning the match.
     </marquee>
@@ -247,13 +271,13 @@ text-align: center;
 
   </div>
 
-  <div id="" class="container main_form">
-    <form action="" id="challangeform" onsubmit="return false" autocomplete="false">
-      <p></p>
-      <div class="form_custom" style="padding: 5px">
+  <div class="container main_body">
+    <div class="row align-items-center">
+      <form class="row align-items-center" action="" id="challangeform" onsubmit="return false" autocomplete="false">
+      <div class="col">
         <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
       </div>
-      <div class="form_custom" style="padding: 5px">
+      <div class="col">
         <select id="gameType" name="gameType">
           <option value="">Game Type</option>
           <option value="Classic Full">Classic Full</option>
@@ -272,10 +296,15 @@ text-align: center;
           <option value="ulta snake  harne wala winner">ulta snake harne wala winner</option>
         </select>
       </div>
-      <button type="submit" class="btn">Set</button>
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Place a challenege</button>
+      </div>
     </form>
-  </div>
-  <div class="container main_body">
+    </div>
+    </div>
+  
+    
+  <div class="container main_body mb-5">
 
     <h1>My Running Challenges</h1>
     <div class="border-bottom"></div>
@@ -290,7 +319,7 @@ text-align: center;
     <div class="border-bottom"></div>
     <div id="running-challanges">
     </div>
-    
+    <div class="pb-5"></div>
   </div>
   <div class="form-popup" id="room-code-popup">
     <form action="" id="roomcodeform" onsubmit="return false" autocomplete="false">
@@ -298,8 +327,10 @@ text-align: center;
         <label for="roomCode"><b>Room Code</b></label>
         <input type="text" placeholder="Enter Room Code" name="roomCode" required>
       </div>
+      <div class="submit_button">
       <button type="submit" class="btn">Submit</button>
       <button type="button" class="btn cancel" id="close-room-code-popup">Close</button>
+      </div>
     </form>
   </div>
 
@@ -318,7 +349,7 @@ text-align: center;
 
 
 
-
+<!---->
 
   <div class="footer">
     <div class="footer-home">
