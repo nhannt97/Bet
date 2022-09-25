@@ -15,7 +15,7 @@ $(document).ready(() => {
   })
   window.showSubmittedImage = (url) => {
     $('#submitted-img').attr('src', url);
-    $('#submitted-img-popup').show();
+    $('#submitted-img-popup').css('display', 'flex');
   }
   function fetchChallanges() {
     fetch(window.location.origin + '/api/challanges?status=submitted').then(async (res) => {

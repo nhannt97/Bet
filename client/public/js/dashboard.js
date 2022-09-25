@@ -21,11 +21,11 @@ $(document).ready(() => {
   }
   window.play = (challangeId) => {
     window.challangeId = challangeId;
-    $('#room-code-popup').show();
+    $('#room-code-popup').css('display', 'flex');
   }
   window.submit = (challangeId) => {
     window.challangeId = challangeId;
-    $('#submit-popup').show();
+    $('#submit-popup').css('display', 'flex');
   }
   function fetchChallanges() {
     fetch(window.location.origin + '/api/challanges').then(async (res) => {

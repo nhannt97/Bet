@@ -11,7 +11,7 @@ $(document).ready(() => {
             if (response.status === 201) {
                 console.log(res);
                 alert('success');
-                window.location.pathname = '/login'
+                document.getElementById('toggle-login').click();
             } else {
                 alert(JSON.stringify(res));
             }

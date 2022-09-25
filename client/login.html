@@ -1,251 +1,184 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in & Sign up Form</title>
+    <link rel="stylesheet" href="css/loginorsignup.css" />
+    <script src="js/jquery-3.6.1.min.js"></script>
 
-<head>
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'><link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery-3.6.1.min.js"></script>
-  <script src="js/login.js">
-  </script>
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form action="" id="loginform" onsubmit="return false" autocomplete="false" class="sign-in-form">
+              <div class="logo">
+                <h4>Ludo Challenges</h4>
+              </div>
 
-  <style>
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+              <div class="heading">
+                <h2>Welcome Back</h2>
+                <h6>Not registred yet?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	font-family: Raleway, sans-serif;
-}
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    placeholder="Enter Email"
+                    class="input-field"
+                    name="email" 
+                    id="name"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Enter Email</label>
+                </div>
 
-body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
-}
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    class="input-field"
+                    autocomplete="off"
+                    placeholder="Password" name="password" id="password"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+                <button type="submit" class="sign-btn">Login Now </button>
+              
 
-.registerbtn{
-  background: #fff;
-    font-size: 14px;
-    margin-top: 30px;
-    padding: 16px 20px;
-    border-radius: 26px;
-    border: 1px solid #D4D3E8;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    color: #4C489D;
-    box-shadow: 0px 2px 2px #5c5696;
-    cursor: pointer;
-    transition: .2s;
-}
+                <p class="text">
+                  Forgotten your password or you login datails?
+                  <a href="#">Get help</a> signing in
+                </p>
+              </div>
+            </form>
 
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-}
+            <form action="" id="registerform" onsubmit="return false" autocomplete="false" class="sign-up-form">
+              <div class="logo">
+               
+                <h4>Ludo Challenges</h4>
+              </div>
 
-.screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
-	position: relative;	
-	height: 600px;
-	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
-}
+              <div class="heading">
+                <h2>Get Started</h2>
+                <h6>Already have an account?</h6>
+                <a href="#" class="toggle" id="toggle-login">Sign in</a>
+              </div>
 
-.screen__content {
-	z-index: 1;
-	position: relative;	
-	height: 100%;
-}
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                    placeholder="Enter Email" name="email" id="email" required
+                  />
+                 
+                </div>
 
-.screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
-}
+                <div class="input-wrap">
+                  <input
+                    type="name"
+                    class="input-field"
+                    autocomplete="off"
+                    placeholder="Enter Name" name="name" id="name"
+                    required
+                  />
+                  
+                </div>
 
-.screen__background__shape {
-	transform: rotate(45deg);
-	position: absolute;
-}
+                <div class="input-wrap">
+                  <input
+                    type="phone"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    placeholder="Enter Phone" name="phone" id="email"
+                    required
+                  />
+                 
+                </div>
 
-.screen__background__shape1 {
-	height: 520px;
-	width: 520px;
-	background: #FFF;	
-	top: -50px;
-	right: 120px;	
-	border-radius: 0 72px 0 0;
-}
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    placeholder="Enter Password" name="password" id="password" required
+            
+                  />
+                 
+                </div>
 
-.screen__background__shape2 {
-	height: 220px;
-	width: 220px;
-	background: #6C63AC;	
-	top: -172px;
-	right: 0;	
-	border-radius: 32px;
-}
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    placeholder="Repeat Password" name="rePassword" id="rePassword" required
+            
+                  />
+                 
+                
+                </div>
+              
 
-.screen__background__shape3 {
-	height: 540px;
-	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
-	top: -24px;
-	right: 0;	
-	border-radius: 32px;
-}
+                <button type="submit" class="sign-btn">Register</button>
 
-.screen__background__shape4 {
-	height: 400px;
-	width: 200px;
-	background: #7E7BB9;	
-	top: 420px;
-	right: 50px;	
-	border-radius: 60px;
-}
+            
 
-.login {
-	width: 320px;
-	padding: 30px;
-	padding-top: 156px;
-}
-
-.login__field {
-	padding: 20px 0px;	
-	position: relative;	
-}
-
-.login__icon {
-	position: absolute;
-	top: 30px;
-	color: #7875B5;
-}
-
-.login__input {
-	border: none;
-	border-bottom: 2px solid #D1D1D4;
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: .2s;
-}
-
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
-	outline: none;
-	border-bottom-color: #6A679E;
-}
-
-.login__submit {
-	background: #fff;
-	font-size: 14px;
-	margin-top: 30px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
-	cursor: pointer;
-	transition: .2s;
-}
-
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-	border-color: #6A679E;
-	outline: none;
-}
-
-.button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
-}
-
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
-}
-
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
-}
-
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}
-
-
-
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="screen">
-      <div class="screen__content">
-        <form action="" id="loginform" onsubmit="return false" autocomplete="false" class="login">
-          <div class="login__field">
-            <i class="login__icon fas fa-user"></i>
-            <input type="email" class="login__input" placeholder="Enter Email" name="email" id="name">
+                <p class="text">
+                  By signing up, I agree to the
+                  <a href="#">Terms of Services</a> and
+                  <a href="#">Privacy Policy</a>
+                </p>
+              </div>
+            </form>
           </div>
-          <div class="login__field">
-            <i class="login__icon fas fa-lock"></i>
-            <input type="password" class="login__input" placeholder="Password" name="password" id="password">
-          </div>
-          <button type="submit" class="registerbtn">Login Now <i class="button__icon fas fa-chevron-right"></i> </button>
-        </form>
-        <div class="social-login">
-          <h3>Log in via</h3>
-          <div class="social-icons">
-            <a href="#" class="social-login__icon fab fa-instagram"></a>
-            <a href="#" class="social-login__icon fab fa-facebook"></a>
-            <a href="#" class="social-login__icon fab fa-twitter"></a>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img src="images/services/ludo.png">
+              <!--              <img src="./img/image1.png" class="image img-1 show" alt="" />
+              <img src="./img/image2.png" class="image img-2" alt="" />
+              <img src="./img/image3.png" class="image img-3" alt="" />
+              -->
+
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Create your own life</h2>
+                  <h2>Customize as you like</h2>
+                  <h2>Invite students to your class</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="screen__background">
-        <span class="screen__background__shape screen__background__shape4"></span>
-        <span class="screen__background__shape screen__background__shape3"></span>		
-        <span class="screen__background__shape screen__background__shape2"></span>
-        <span class="screen__background__shape screen__background__shape1"></span>
-      </div>		
-    </div>
-  </div>
-    
+    </main>
 
-</body>
+    <!-- Javascript file -->
 
+		<script src="js/app.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+  </body>
 </html>
-
-
