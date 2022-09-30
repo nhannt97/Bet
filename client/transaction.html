@@ -12,10 +12,48 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-    <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/checkout.js"></script>
+    <script src="/jquery-3.6.1.min.js"></script>
+    <script src="/checkout.js"></script>
     </script>
     <style>
+          @media screen and (max-width: 787px) {
+
+.main_body{
+  padding: 8px;
+}
+.site-header .social-icon{
+  display: none;
+}
+#gameType{
+  margin-left: 0px;
+}
+.navbar-toggler{
+  padding: 0;
+}
+
+}
+        .footer_links{
+ 
+ color: white;
+ text-decoration: none;
+
+}
+.home_text{
+    color: white;
+  }
+  .footer {
+  display: flex;
+  justify-content: space-around;
+  background-color:red;
+  position:fixed;
+      bottom: 0;
+  width: -webkit-fill-available;
+}
+.footer-home, .footer-deposit, .footer-withdraw, .footer-history{
+  text-align:center;
+  color:white;
+  padding-top:19px;
+}
         .wallet_main{
 padding-top: 55px;
         }
@@ -34,15 +72,6 @@ padding-top: 55px;
 
         .amount-chip {
             background-color: #28a745;
-        }
-        .success-chip {
-            background-color: #106fbe;
-        }
-        .pending-chip {
-            background-color: #ffb900;
-        }
-        .fail-chip {
-            background-color: red;
         }
     </style>
 </head>
@@ -69,16 +98,13 @@ padding-top: 55px;
                 </div>
     
                 <div class="col-lg-3 col-md-3 col-12 ms-auto">
-                    <ul class="social-icon">
-                        <li><a href="https://facebook.com/tooplate" class="social-icon-link bi-facebook"></a></li>
-    
-                        <li><a href="https://pinterest.com/tooplate" class="social-icon-link bi-pinterest"></a></li>
-    
-                        <li><a href="https://twitter.com/minthu" class="social-icon-link bi-twitter"></a></li>
-    
-                        <li><a href="https://www.youtube.com/tooplate" class="social-icon-link bi-youtube"></a></li>
-                    </ul>
-                </div>
+                    <p class="text-white mb-0">
+                      <a href="#" class="text-white">
+                          <i class="bi-telephone site-header-icon me-2"></i>
+                    Earn With Us
+                      </a>
+                  </p>
+                  </div>
     
             </div>
         </div>
@@ -94,27 +120,31 @@ padding-top: 55px;
             </button>
     
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
-                    </li>
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/dashboard"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
+                </li>
     
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="/deposit"><small class="small-title"><strong class="text-warning">02</strong></small> Deposit</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/deposit"><small class="small-title"><strong class="text-warning">02</strong></small> Deposit</a>
+                </li>
     
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="/transaction"><small class="small-title"><strong class="text-warning">03</strong></small> Transaction</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/transaction"><small class="small-title"><strong class="text-warning">03</strong></small> Transaction</a>
+                </li>
     
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="/profile"><small class="small-title"><strong class="text-warning">04</strong></small> Profile</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/profile"><small class="small-title"><strong class="text-warning">04</strong></small> Profile</a>
+                </li>
     
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">05</strong></small>Log Out</a>
-                    </li>
-                </ul>
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="/withdraw"><small class="small-title"><strong class="text-warning">05</strong></small>Withdraw</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">06</strong></small>Log Out</a>
+                </li>
+    
+            </ul>
             <div>
                     
         </div>
@@ -125,6 +155,34 @@ padding-top: 55px;
     <div class="border-bottom"></div>
     <div id="transaction-history"></div>
 </div>
+
+<div class="footer">
+    <div class="footer-home">
+      <a class="footer_links" href="/dashboard">
+  <i class="fa-solid fa-house"></i>
+        <p class="home_text">Home</p>
+        </a>
+    </div>
+    
+     <div class="footer-history">
+      <a class="footer_links" href="/transaction">
+       <i class="fa-solid fa-clock-rotate-left"></i>
+        <p class="home_text">History</p>
+        </a>
+    </div>
+     <div class="footer-deposit">
+      <a class="footer_links" href="/deposit">
+         <i class="fa-solid fa-plus"></i>
+        <p class="home_text">Deposit</p>
+        </a>
+    </div>
+     <div class="footer-withdraw">
+      <a class="footer_links" href="/withdraw">
+        <i class="fa-sharp fa-solid fa-wallet"></i>
+        <p class="home_text">Withdraw</p>
+        </a>
+    </div>
+  </div>
 </body>
 
 </html>

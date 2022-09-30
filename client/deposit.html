@@ -209,6 +209,23 @@ text-align: center;
     text-align: center;
 }
 
+.footer_links{
+ 
+ color: white;
+ text-decoration: none;
+
+}
+.home_text{
+    color: white;
+  }
+  .btn-primary {
+    width: 124px;
+    background: red;
+    border-color: white;
+}
+
+
+
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (max-width: 500px) {
     .header a {
@@ -221,6 +238,23 @@ text-align: center;
       float: none;
     }
   }
+
+  @media screen and (max-width: 787px) {
+
+.main_body{
+  padding: 8px;
+}
+.site-header .social-icon{
+  display: none;
+}
+#gameType{
+  margin-left: 0px;
+}
+.navbar-toggler{
+  padding: 0;
+}
+
+}
 </style>
 </head>
 
@@ -246,15 +280,12 @@ text-align: center;
             </div>
 
             <div class="col-lg-3 col-md-3 col-12 ms-auto">
-                <ul class="social-icon">
-                    <li><a href="https://facebook.com/tooplate" class="social-icon-link bi-facebook"></a></li>
-
-                    <li><a href="https://pinterest.com/tooplate" class="social-icon-link bi-pinterest"></a></li>
-
-                    <li><a href="https://twitter.com/minthu" class="social-icon-link bi-twitter"></a></li>
-
-                    <li><a href="https://www.youtube.com/tooplate" class="social-icon-link bi-youtube"></a></li>
-                </ul>
+              <p class="text-white mb-0">
+                <a href="#" class="text-white">
+                    <i class="bi-telephone site-header-icon me-2"></i>
+              Earn With Us
+                </a>
+            </p>
             </div>
 
         </div>
@@ -271,27 +302,31 @@ text-align: center;
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
-                </li>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="/dashboard"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/deposit"><small class="small-title"><strong class="text-warning">02</strong></small> Deposit</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="/deposit"><small class="small-title"><strong class="text-warning">02</strong></small> Deposit</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/transaction"><small class="small-title"><strong class="text-warning">03</strong></small> Transaction</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="/transaction"><small class="small-title"><strong class="text-warning">03</strong></small> Transaction</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/profile"><small class="small-title"><strong class="text-warning">04</strong></small> Profile</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="/profile"><small class="small-title"><strong class="text-warning">04</strong></small> Profile</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">05</strong></small>Log Out</a>
-                </li>
-            </ul>
+            <li class="nav-item">
+              <a class="nav-link click-scroll" href="/withdraw"><small class="small-title"><strong class="text-warning">05</strong></small>Withdraw</a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">06</strong></small>Log Out</a>
+            </li>
+
+        </ul>
         <div>
                 
     </div>
@@ -309,30 +344,33 @@ text-align: center;
         <button type="submit" class="btn btn-primary">Pay</button>
     </form>
 </div>
-
-
-
-    <div class="footer">
-        <div class="footer-home">
-    <i class="fa-solid fa-house"></i>
-            <p>Home</p>
-        </div>
-        
-         <div class="footer-history">
-           <i class="fa-solid fa-clock-rotate-left"></i>
-            <p>History</p>
-        </div>
-         <div class="footer-deposit">
-             <i class="fa-solid fa-plus"></i>
-            <p>Deposit</p>
-        </div>
-         <div class="footer-withdraw">
-            <i class="fa-sharp fa-solid fa-wallet"></i>
-            <p>Withdraw</p>
-        </div>
-        
-        
-    </div>
+<div class="footer">
+  <div class="footer-home">
+    <a class="footer_links" href="/dashboard">
+<i class="fa-solid fa-house"></i>
+      <p class="home_text">Home</p>
+      </a>
+  </div>
+  
+   <div class="footer-history">
+    <a class="footer_links" href="/transaction">
+     <i class="fa-solid fa-clock-rotate-left"></i>
+      <p class="home_text">History</p>
+      </a>
+  </div>
+   <div class="footer-deposit">
+    <a class="footer_links" href="/deposit">
+       <i class="fa-solid fa-plus"></i>
+      <p class="home_text">Deposit</p>
+      </a>
+  </div>
+   <div class="footer-withdraw">
+    <a class="footer_links" href="/withdraw">
+      <i class="fa-sharp fa-solid fa-wallet"></i>
+      <p class="home_text">Withdraw</p>
+      </a>
+  </div>
+</div>
 </body>
 
 </html>

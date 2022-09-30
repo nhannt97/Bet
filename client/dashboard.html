@@ -21,6 +21,15 @@
 body {
     margin: 0;
   }
+  .footer_links{
+ 
+    color: white;
+    text-decoration: none;
+
+  }
+  .home_text{
+    color: white;
+  }
   .footer {
   display: flex;
   justify-content: space-around;
@@ -177,6 +186,22 @@ text-align: center;
       float: none;
     }
   }
+  @media screen and (max-width: 787px) {
+
+    .main_body{
+      padding: 8px;
+    }
+    .site-header .social-icon{
+      display: none;
+    }
+    #gameType{
+      margin-left: 0px;
+    }
+    .navbar-toggler{
+      padding: 0;
+    }
+
+  }
 
   </style>
 </head>
@@ -203,15 +228,12 @@ text-align: center;
             </div>
 
             <div class="col-lg-3 col-md-3 col-12 ms-auto">
-                <ul class="social-icon">
-                    <li><a href="https://facebook.com/tooplate" class="social-icon-link bi-facebook"></a></li>
-
-                    <li><a href="https://pinterest.com/tooplate" class="social-icon-link bi-pinterest"></a></li>
-
-                    <li><a href="https://twitter.com/minthu" class="social-icon-link bi-twitter"></a></li>
-
-                    <li><a href="https://www.youtube.com/tooplate" class="social-icon-link bi-youtube"></a></li>
-                </ul>
+              <p class="text-white mb-0">
+                <a href="#" class="text-white">
+                    <i class="bi-telephone site-header-icon me-2"></i>
+              Earn With Us
+                </a>
+            </p>
             </div>
 
         </div>
@@ -230,7 +252,7 @@ text-align: center;
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
+                    <a class="nav-link click-scroll" href="/dashboard"><small class="small-title"><strong class="text-warning">01</strong></small> Home</a>
                 </li>
 
                 <li class="nav-item">
@@ -246,8 +268,12 @@ text-align: center;
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">05</strong></small>Log Out</a>
+                  <a class="nav-link click-scroll" href="/withdraw"><small class="small-title"><strong class="text-warning">05</strong></small>Withdraw</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/api/logout"><small class="small-title"><strong class="text-warning">06</strong></small>Log Out</a>
                 </li>
+
             </ul>
         <div>
                 
@@ -353,21 +379,29 @@ text-align: center;
 
   <div class="footer">
     <div class="footer-home">
+      <a class="footer_links" href="/dashboard">
 <i class="fa-solid fa-house"></i>
-        <p>Home</p>
+        <p class="home_text">Home</p>
+        </a>
     </div>
     
      <div class="footer-history">
+      <a class="footer_links" href="/transaction">
        <i class="fa-solid fa-clock-rotate-left"></i>
-        <p>History</p>
+        <p class="home_text">History</p>
+        </a>
     </div>
      <div class="footer-deposit">
+      <a class="footer_links" href="/deposit">
          <i class="fa-solid fa-plus"></i>
-        <p>Deposit</p>
+        <p class="home_text">Deposit</p>
+        </a>
     </div>
      <div class="footer-withdraw">
+      <a class="footer_links" href="/withdraw">
         <i class="fa-sharp fa-solid fa-wallet"></i>
-        <p>Withdraw</p>
+        <p class="home_text">Withdraw</p>
+        </a>
     </div>
     
     
