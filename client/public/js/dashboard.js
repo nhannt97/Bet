@@ -7,11 +7,10 @@ $(document).ready(() => {
     $('#submitform')[0].reset();
     $('#submit-popup').hide();
   }
-  window.playApi = (roomCode) => {
-    fetch(window.location.origin + '/api/challanges/' + window.challangeId + '/play?roomCode=' + roomCode).then(async res => {
+  window.startApi = (roomCode) => {
+    fetch(window.location.origin + '/api/challanges/' + window.challangeId + '/start?roomCode=' + roomCode).then(async res => {
       if (res.status === 200) {
         fetchChallanges();
-        getWallet();
         window.closeRoomCodePopup();
       } else {
         const result = await res.json();
@@ -20,8 +19,33 @@ $(document).ready(() => {
     });
   }
   window.play = (challangeId) => {
+    fetch(window.location.origin + '/api/challanges/' + challangeId + '/play').then(async res => {
+      if (res.status === 200) {
+        fetchChallanges();
+        getWallet();
+      } else {
+        const result = await res.json();
+        alert(JSON.stringify(result));
+      }
+    });
+  }
+  window.start = (challangeId, creatorId, roomCode) => {
     window.challangeId = challangeId;
-    $('#room-code-popup').css('display', 'flex');
+    window.creatorId = creatorId;
+    if (creatorId === window.user._id) {
+      $('#roomCode').removeAttr('disabled');
+      $('#submit-room-code').show();
+      $('#room-code-popup').css({ display: 'flex' });
+    } else {
+      if (!roomCode || roomCode === "undefined") {
+        alert('wait room code');
+        return;
+      }
+      $('#roomCode').val(roomCode)
+      $('#roomCode').attr('disabled', 'true');
+      $('#submit-room-code').hide();
+      $('#room-code-popup').show({ display: 'flex' });
+    }
   }
   window.submit = (challangeId) => {
     window.challangeId = challangeId;
@@ -63,7 +87,10 @@ $(document).ready(() => {
               <span class="chip amount-chip">Rs.${challange.amount}</span>
               <span class="chip game-type-chip">${challange.gameType}</span>
               ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
-              ${challange.creator._id === window.user._id || challange.accepter._id === window.user._id ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
+              ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
+
+              ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
+              ${(challange.creator._id === window.user._id || challange.accepter._id === window.user._id) && challange.roomCode ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
             </div>
             <div class="border-bottom"></div>
           `;
@@ -74,7 +101,9 @@ $(document).ready(() => {
               <span class="chip amount-chip">Rs.${challange.amount}</span>
               <span class="chip game-type-chip">${challange.gameType}</span>
               ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
-              ${challange.creator._id === window.user._id || challange.accepter._id === window.user._id ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
+              ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
+              ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
+              ${(challange.creator._id === window.user._id || challange.accepter._id === window.user._id) && challange.roomCode ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
             </div>
             <div class="border-bottom"></div>
           `;
@@ -134,7 +163,7 @@ $(document).ready(() => {
       values[element.name] = element.value;
     });
     event.preventDefault();
-    window.playApi(values.roomCode);
+    window.startApi(values.roomCode);
   });
   $('#submitform').submit(function (event) {
     const fd = new FormData();

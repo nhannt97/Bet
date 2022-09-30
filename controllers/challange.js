@@ -37,11 +37,35 @@ module.exports = {
         }
 
     },
-    play: async (req, res) => {
+    start: async (req, res) => {
         try {
             const { challangeId } = req.params;
             const roomCode = req.query.roomCode;
             if (!roomCode) throw "Room Code is required";
+            let challange = await Challange.findOneAndUpdate({
+                _id: challangeId,
+                creator: req.user._id,
+                status: 'running',
+                roomCode: null
+            }, {
+                $set: {
+                    roomCode,
+
+                }
+            });
+            res.status(200).send(challange);
+        } catch (error) {
+            console.log(JSON.stringify(error))
+            res.status(500).send({
+                error: JSON.stringify(error)
+            });
+        }
+    },
+    play: async (req, res) => {
+        try {
+            const { challangeId } = req.params;
+            // const roomCode = req.query.roomCode;
+            // if (!roomCode) throw "Room Code is required";
             let challange = await Challange.findById(challangeId);
             const balance = await ctrlTransaction.getBalance(req.user._id);
             if (balance < challange.amount) throw "Balance is not enough";
@@ -49,7 +73,7 @@ module.exports = {
                 _id: challangeId,
                 accepter: null,
                 status: 'new'
-            }, { $set: { accepter: req.user._id, status: 'running', roomCode } });
+            }, { $set: { accepter: req.user._id, status: 'running' } });
             const transaction = new Transaction({ user: req.user._id, challange: challange._id, type: 'Play Challange', amount: -challange.amount });
             await transaction.save();
             res.status(200).send(challange);

@@ -48,6 +48,7 @@ app.get('/api/wallet', ctrlAuth.checkAuth, ctrlTransaction.getWallet);
 app.get('/api/challanges', ctrlAuth.checkAuth, ctrlChallange.list);
 app.post('/api/challanges/new', ctrlAuth.checkAuth, ctrlChallange.add);
 app.get('/api/challanges/:challangeId/play', ctrlAuth.checkAuth, ctrlChallange.play);
+app.get('/api/challanges/:challangeId/start', ctrlAuth.checkAuth, ctrlChallange.start);
 app.put('/api/challanges/:challangeId/submit', ctrlAuth.checkAuth, upload.fields([{ name: 'pic', maxCount: 1 }]), ctrlChallange.submit);
 app.put('/api/challanges/:challangeId/approve', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlChallange.approve);
 app.get('/api/challanges/:challangeId/submitted-pic', ctrlAuth.checkAuth, ctrlAuth.checkAdmin, ctrlChallange.getSubmittedPic);
