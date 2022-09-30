@@ -200,3 +200,22 @@ text-align: center;
       float: none;
     }
   }
+  @media screen and (max-width: 787px) {
+
+    .main_body {
+      padding: 8px;
+    }
+
+    .site-header .social-icon {
+      display: none;
+    }
+
+    #gameType {
+      margin-left: 0px;
+    }
+
+    .navbar-toggler {
+      padding: 0;
+    }
+
+  }
