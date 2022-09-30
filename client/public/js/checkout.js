@@ -20,7 +20,7 @@ $(document).ready(function () {
                 if (response.status === 201) {
                     console.log(res);
                     const options = {
-                        key: "rzp_test_E8p2EBA92XdIZb",
+                        key: "rzp_live_OcZTWiO4iyxWrI",
                         "amount": values.amount,
                         "currency": "INR",
                         "name": user.name,
