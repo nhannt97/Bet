@@ -27,6 +27,16 @@ $(document).ready(() => {
     window.challangeId = challangeId;
     $('#submit-popup').css('display', 'flex');
   }
+  $('#game-type').hide();
+  $('#amount').keyup((e) => {
+    console.log(e.target.value);
+    if (e.target.value) $('#game-type').show();
+    else {
+
+      $('#game-type').hide();
+      $('#game-type-none').click();
+    }
+  })
   function fetchChallanges() {
     fetch(window.location.origin + '/api/challanges').then(async (res) => {
       const challanges = await res.json();
@@ -99,7 +109,9 @@ $(document).ready(() => {
         const res = await response.json();
         if (response.status === 201) {
           $('#challangeform')[0].reset();
+          $('#game-type').hide();
           fetchChallanges();
+
           getWallet();
           alert("success");
         } else {
