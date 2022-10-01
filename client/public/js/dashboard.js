@@ -51,21 +51,32 @@ $(document).ready(() => {
     window.challangeId = challangeId;
     $('#submit-popup').css('display', 'flex');
   }
-  $('#game-type').hide();
-  $('#amount').keyup((e) => {
-    console.log(e.target.value);
-    if (e.target.value) $('#game-type').show();
-    else {
+  $('#challanges').hide();
+  // $('#amount').keyup((e) => {
+  //   console.log(e.target.value);
+  //   if (e.target.value) $('#game-type').show();
+  //   else {
 
-      $('#game-type').hide();
-      $('#game-type-none').click();
-    }
-  })
+  //     $('#game-type').hide();
+  //     $('#game-type-none').click();
+  //   }
+  // })
   $('.game-type-input').click(e => e.preventDefault())
   $('.game-type-container').click((e) => {
     const id = e.currentTarget.dataset.id;
     $('.game-type-input').removeAttr('checked');
     $($('.game-type-input')[parseInt(id)]).attr('checked', true);
+    window.gameType = $($('.game-type-input')[parseInt(id)]).val();
+    $('#game-type').hide();
+    $('#challanges').show();
+    fetchChallanges();
+  });
+  $('#back').click(() => {
+    $('#challanges').hide();
+    $('#challangeform')[0].reset();
+    $('.game-type-input').removeAttr('checked');
+    window.gameType = undefined;
+    $('#game-type').show();
   });
   function fetchChallanges() {
     fetch(window.location.origin + '/api/challanges').then(async (res) => {
@@ -74,7 +85,7 @@ $(document).ready(() => {
         let recent = '';
         let running = '';
         let myRunning = '';
-        challanges.forEach((challange) => {
+        challanges.filter(c => c.gameType === window.gameType).forEach((challange) => {
           if (challange.status === 'new') {
             recent += `
 <div class="challenge_box_main">
@@ -137,7 +148,7 @@ $(document).ready(() => {
       }
     });
   }
-  fetchChallanges();
+  // fetchChallanges();
   setInterval(fetchChallanges, 2000);
 
   $('#challangeform').submit(function (event) {
@@ -149,12 +160,12 @@ $(document).ready(() => {
       alert('Amount is required');
       return;
     }
-    if (!values.gameType) {
+    if (!window.gameType) {
       alert('Game Type is required');
       return;
     }
     event.preventDefault();
-    fetch(window.location.origin + '/api/challanges/new', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
+    fetch(window.location.origin + '/api/challanges/new', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...values, gameType: window.gameType}) })
       .then(async (response) => {
         const res = await response.json();
         if (response.status === 201) {
