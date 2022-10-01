@@ -79,14 +79,28 @@
     }
 
     .game-type-chip {
-      background-color: #17a2b8;
+     color:black
     }
-
+.space_below{
+background-color:white !important;
+margin-bottom:18px;}
+.dark_name{
+font-weight:600;}
+.name_box{
+border-bottom:1px solid #ffa8a8;
+}
     .play-chip {
       cursor: pointer;
       background-color: #007bff;
+text-align:right;
     }
-
+.challenge_box{
+padding:4px;
+background-color:	#ffe8e8;
+border:1px solid #ffa8a8;
+}
+.space_name,.space_above{
+margin-top:8px;}
     .submit-chip {
       cursor: pointer;
       background-color: #ffd000;
@@ -331,7 +345,7 @@
   <p class="wallet_box"> Welcome <span id="name"></span>. You have <span id="balance"> </span> chips</p>
 
   <div class="container main_body">
-    <p>Notice- Popular Full / Classic Full Game dekh k khelo, Game Goti khulte hi valid h. Popular Full me popular ka
+    <p>Notice-Classic Full Game dekh k khelo, Game Goti khulte hi valid h. Popular Full me popular ka
       code and Classic Full me Classic Only code are valid. Agar aapko koi game me dusri site pe khelne k liye bolta h
       to hme screenshot do hum aapko win denge.
 
@@ -345,7 +359,7 @@
     <div class="row align-items-center">
       <form class="row align-items-center" action="" id="challangeform" onsubmit="return false" autocomplete="false">
         <div class="col">
-          <input type="number" placeholder="Enter Amount" name="amount" id="amount" required>
+          <input type="number" placeholder="Enter Amount" name="amount" id="amount" min="20" required>
         </div>
         <div class="col">
           <button type="submit" class="btn btn-primary">Place a challenege</button>

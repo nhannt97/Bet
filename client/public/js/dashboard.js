@@ -71,41 +71,56 @@ $(document).ready(() => {
         challanges.forEach((challange) => {
           if (challange.status === 'new') {
             recent += `
-              <div class="challange recent-challange">
-                ${challange.creator.name} has set challange for 
-                <span class="chip amount-chip">Rs.${challange.amount}</span>
-                <span class="chip game-type-chip">${challange.gameType}</span>
+<div class="challenge_box_main">
+<div class="challenge_box">
+             <div class="challange recent-challange">
+               <span class="name_box"> <span class="dark_name">CHALLENGE FROM</span> ${challange.creator.name}
+                
+  <span class="chip game-type-chip">${challange.gameType}</span></span> <br>
+<div class="space_name">
+<span class="chip amount-chip">Entry Fee :- ${challange.amount}</span>
                 ${window.user._id === challange.creator._id ? '' : `<span class="chip play-chip" onclick="play('${challange._id}')">Play</span>`}
-              </div>
-              <div class="border-bottom"></div>
+</div>              
+</div>
+              </div><div class="space_below"></div></div>
             `;
           }
           if (challange.status === 'running') {
             running += `
+<div class="challenge_box_main">
+<div class="challenge_box">
             <div class="challange running-challange">
-              ${challange.creator.name} <span>vs</span> ${challange.accepter.name} for 
-              <span class="chip amount-chip">Rs.${challange.amount}</span>
+
+             <span class="name_box"><span class="dark_name">Match vs</span> ${challange.creator.name} <span>&</span> ${challange.accepter.name} </span>
+              
               <span class="chip game-type-chip">${challange.gameType}</span>
+
+<br><div class="space_above"><span class="chip amount-chip">Rs.${challange.amount}</span>
               ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
               ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
 
               ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
               ${(challange.creator._id === window.user._id || challange.accepter._id === window.user._id) && challange.roomCode ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
-            </div>
-            <div class="border-bottom"></div>
+</div>            
+</div>
+
+           </div><div class="space_below"></div></div>
           `;
             if (challange.status === 'running' && (challange.creator._id === window.user._id || challange.accepter._id === window.user._id)) {
               myRunning += `
+<div class="challenge_box_main">
+<div class="challenge_box">
             <div class="challange running-challange">
-              ${challange.creator.name} <span>vs</span> ${challange.accepter.name} for 
-              <span class="chip amount-chip">Rs.${challange.amount}</span>
-              <span class="chip game-type-chip">${challange.gameType}</span>
-              ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
+              <span class="dark_name">Match vs</span> ${challange.creator.name} <span> & </span> ${challange.accepter.name} for 
+            
+              <span class="chip game-type-chip">${challange.gameType}</span><br>
+  <span class="chip amount-chip">Rs.${challange.amount}</span>            
+  ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
               ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
               ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
               ${(challange.creator._id === window.user._id || challange.accepter._id === window.user._id) && challange.roomCode ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
             </div>
-            <div class="border-bottom"></div>
+           </div><div class="space_below"></div> </div>
           `;
             }
           }
