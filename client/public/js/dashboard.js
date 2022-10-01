@@ -61,6 +61,12 @@ $(document).ready(() => {
       $('#game-type-none').click();
     }
   })
+  $('.game-type-input').click(e => e.preventDefault())
+  $('.game-type-container').click((e) => {
+    const id = e.currentTarget.dataset.id;
+    $('.game-type-input').removeAttr('checked');
+    $($('.game-type-input')[parseInt(id)]).attr('checked', true);
+  });
   function fetchChallanges() {
     fetch(window.location.origin + '/api/challanges').then(async (res) => {
       const challanges = await res.json();
