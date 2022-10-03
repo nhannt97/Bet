@@ -113,7 +113,7 @@ $(document).ready(() => {
               <span class="chip game-type-chip">${challange.gameType}</span>
 
 <br><div class="space_above"><span class="chip amount-chip">Rs.${challange.amount}</span>
-              ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
+              ${challange.roomCode && (challange.accepter._id === window.user._id || challange.creator._id === window.user._id) ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
               ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
 
               ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
@@ -132,7 +132,7 @@ $(document).ready(() => {
             
               <span class="chip game-type-chip">${challange.gameType}</span><br>
   <span class="chip amount-chip">Rs.${challange.amount}</span>            
-  ${challange.roomCode ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
+  ${challange.roomCode && (challange.accepter._id === window.user._id || challange.creator._id === window.user._id) ? `<span class="chip room-code-chip">Room Code: ${challange.roomCode}</span>` : ''}
               ${!challange.roomCode && challange.accepter._id === window.user._id ? `<span class="chip room-code-chip">Wait for room code</span>` : ''}
               ${!challange.roomCode && challange.creator._id === window.user._id ? `<span class="chip submit-chip" onclick="start('${challange._id}', '${challange.creator._id}', '${challange.roomCode}')">Start now</span>` : ''}
               ${(challange.creator._id === window.user._id || challange.accepter._id === window.user._id) && challange.roomCode ? `<span class="chip submit-chip" onclick="submit('${challange._id}')">Submit</span>` : ''}
