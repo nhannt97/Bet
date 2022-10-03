@@ -123,7 +123,7 @@ module.exports = {
                 _id: challangeId,
             }, { $set: { status: 'approved' } }))?.toObject();
             if (!challange) throw "Challange not found"
-            const transaction = new Transaction({ user: challange.submit.winner, challange: challange._id, type: 'Win Challange', amount: challange.amount * 2 * 8 / 10 });
+            const transaction = new Transaction({ user: challange.submit.winner, challange: challange._id, type: 'Win Challange', amount: challange.amount * 2 * 95 / 100 });
             await transaction.save();
             res.status(200).send({});
         } catch (error) {
