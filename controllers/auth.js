@@ -19,12 +19,12 @@ module.exports = {
     login: async (req, res) => {
         try {
             const { email, password } = req.body;
-            const user = await User.findOne({ email, password });
+            const user = await User.findOne({ $or: [{ email }, { phone: email }], password });
             if (user) {
-                token = jwt.sign({ email, password }, process.env.JWT_SECRET, { expiresIn: '24h' });
+                token = jwt.sign({ email: user.email, phone: user.phone, password }, process.env.JWT_SECRET, { expiresIn: '24h' });
                 res.cookie('token', token);
                 req.user = user;
-                res.cookie('user', JSON.stringify({ _id: user._id, email, name: user.name, phone: user.phone, kyc: user.kyc }));
+                res.cookie('user', JSON.stringify({ _id: user._id, email: user.email, name: user.name, phone: user.phone, kyc: user.kyc }));
                 res.status(200).send(user);
             } else throw 'Login failed!'
         } catch (error) {
@@ -58,7 +58,7 @@ module.exports = {
                 cookie[key] = value;
             });
             const decoded = jwt.verify(cookie.token, process.env.JWT_SECRET);
-            const user = await User.findOne({ email: decoded.email });
+            const user = await User.findOne({email: decoded.email, phone: decoded.phone, password: decoded.password });
             if (user) {
                 req.user = user;
                 res.cookie('user', JSON.stringify({ _id: user._id, email: user.email, name: user.name, phone: user.phone, kyc: user.kyc }));
